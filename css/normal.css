@@ -1,0 +1,74 @@
+
+/* ******** check box *********** */
+.checkbox__label:before {
+content: ' ';
+display: block;
+height: 1.5rem;
+width: 1.5rem;
+position: absolute;
+top: 0;
+left: 0;
+background: #fff;
+border: 2px solid #48440E; /* Adiciona uma borda ao checkbox */
+border-radius: 4px; /* Deixa os cantos do checkbox mais arredondados */
+}
+
+/* Faux checkbox: we can not style input[checkbox] directly */
+.checkbox__label:after {
+content: ' ';
+display: block;
+height: 1.5rem;
+width: 1.5rem;
+border-radius: 50%;
+transition: 200ms;
+position: absolute;
+top: 0;
+left: 0;
+background: #fff;
+border: 2px solid #48440E; /* Adiciona uma borda ao checkbox */
+}
+
+/* **** Animation **** */
+.checkbox__label:after {
+transition: 100ms ease-in-out;
+}
+
+/* Look after animation finishes
+    -----------------------------
+*/
+.checkbox__input:checked ~ .checkbox__label:after {
+transform: scale(0.8); /* Reduz o tamanho do círculo ao ser marcado */
+background: rgb(124, 95, 95);
+border: 2px solid rgb(124, 95, 95); /* Muda a cor da borda quando marcado */
+}
+
+.old-ie .checkbox__label:before,
+.old-ie .checkbox__label:after {
+display: none;
+}
+
+/* Not so important:
+    -----------------
+*/
+
+.checkbox {
+position: relative;    
+font-size: 4em;
+display: flex;
+font-family: 'Roboto Condensed', serif;
+letter-spacing: -.05em;
+cursor: pointer;
+/* Mobile Safari: */
+-webkit-tap-highlight-color: rgba(0,0,0,0);   
+}
+
+.checkbox__label:after:hover,
+.checkbox__label:after:active {
+    border-color: green; 
+}  
+
+.checkbox__label {
+margin-left: 0.65rem;
+margin-top: 2.5rem;
+line-height: .75;  
+}

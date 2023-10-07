@@ -1,0 +1,79 @@
+
+/* ******** check box *********** */
+.checkbox__label:before {
+    content: ' ';
+    display: block;
+    height: 1.5rem;
+    width: 1.5rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #fff;
+    border-radius: 50%;
+    border: 2px solid #48440E; /* Cor da borda */
+}
+
+
+/* Faux checkbox: we can not style input[checkbox] directly */
+.checkbox__label:after {
+    content: ' ';
+    display: block;
+    height: 1.5rem;
+    width: 1.5rem;
+    border: 1px solid #48440E;
+    border-radius: 50%;
+    transition: 200ms;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #fff;  
+}
+
+
+
+/* **** Animation **** */
+.checkbox__label:after {
+transition: 100ms ease-in-out;
+}
+
+/* Look after animation finishes */
+.checkbox__input:checked ~ .checkbox__label:after {
+    border-top-style: none; 
+    border-right-style: none;
+    /* -ms-transform: rotate(-45deg);  */
+    /* transform: rotate(-45deg); */
+    transform: rotate(-30deg); 
+    height: 1.1rem;
+    background: rgb(124, 95, 95); 
+}
+
+.old-ie .checkbox__label:before,
+.old-ie .checkbox__label:after {
+display: none;
+}
+
+/* Not so important:
+    -----------------
+*/
+
+.checkbox {
+position: relative;    
+font-size: 4em;
+display: flex;
+font-family: 'Roboto Condensed', serif;
+letter-spacing: -.05em;
+cursor: pointer;
+/* Mobile Safari: */
+-webkit-tap-highlight-color: rgba(0,0,0,0);   
+}
+
+.checkbox__label:after:hover,
+.checkbox__label:after:active {
+    border-color: green; 
+}  
+
+.checkbox__label {
+margin-left: 0.65rem;
+margin-top: 1.5rem;
+line-height: .75;  
+}
